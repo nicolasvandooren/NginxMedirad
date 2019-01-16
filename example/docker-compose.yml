@@ -1,0 +1,14 @@
+---
+version: "3.1"
+services:
+  nginx:
+    image: nicolasvandooren/NginxMedirad:latest
+    # ports:
+    #   - "8088:8080"
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+    volumes:
+      - ./conf:/usr/local/openresty/nginx/conf
+      - ./openssl:/opt/local/etc/openssl
