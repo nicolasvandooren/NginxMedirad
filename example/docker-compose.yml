@@ -2,9 +2,13 @@
 version: "3.1"
 services:
   nginx:
-    image: nicolasvandooren/nginxmedirad:1.0.0
+    image: nicolasvandooren/nginxmedirad:filebeat
     # ports:
     #   - "8088:8080"
+    environment:
+      MEDIRAD_NGINX_ENABLE_ELASTIC: "true"
+      MEDIRAD_NGINX_LOGSTASH_URL: addr:port
+      MEDIRAD_NGINX_ELASTIC_INSTANCE: medirad
     logging:
       driver: json-file
       options:
