@@ -46,4 +46,8 @@ fi
 
 #######################################################################################
 
+CLIENT_SECRET=$(cat /run/secrets/client_secret)
+sed -i "s|\${server_name}|$IRDBB_ROOT_HOST|g" /usr/local/openresty/nginx/conf/nginx.conf
+sed -i "s|\${client_secret}|$CLIENT_SECRET|g" /usr/local/openresty/nginx/conf/nginx.conf
+
 ./usr/local/openresty/bin/openresty -g 'daemon off;'

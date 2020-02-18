@@ -16,5 +16,6 @@ RUN chmod go-w /etc/filebeat/filebeat.yml
 RUN rm /usr/local/openresty/nginx/logs/access.log /usr/local/openresty/nginx/logs/error.log && \
     rm /etc/nginx/conf.d/default.conf
 
+COPY nginx.conf /usr/local/openresty/nginx/conf/nginx.conf
 COPY script.sh /script.sh
 ENTRYPOINT ["/script.sh"]
